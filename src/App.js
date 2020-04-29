@@ -9,7 +9,6 @@ import ReactVirtualizedTable from './components/Table.js';
 function App() {
   return (
     <div className="App">
-      {CenteredGrid()}
       {ReactVirtualizedTable()}
     </div>
   );

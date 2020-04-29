@@ -144,11 +144,14 @@ const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 // ---
 
 const sample = [
-  ['Frozen yoghurt', 159, 6.0, 24, 4.0],
-  ['Ice cream sandwich', 237, 9.0, 37, 4.3],
-  ['Eclair', 262, 16.0, 24, 6.0],
-  ['Cupcake', 305, 3.7, 67, 4.3],
-  ['Gingerbread', 356, 16.0, 49, 3.9],
+  ['9am', 159, 6.0, 24, 4.0],
+  ['10am', 237, 9.0, 37, 4.3],
+  ['11am', 262, 16.0, 24, 6.0],
+  ['12pm', 305, 3.7, 67, 4.3],
+  ['2pm', 356, 16.0, 49, 3.9],
+  ['3pm', 356, 16.0, 49, 3.9],
+  ['4pm', 356, 16.0, 49, 3.9],
+  ['5pm', 356, 16.0, 49, 3.9],
 ];
 
 function createData(id, dessert, calories, fat, carbs, protein) {
@@ -157,21 +160,21 @@ function createData(id, dessert, calories, fat, carbs, protein) {
 
 const rows = [];
 
-for (let i = 0; i < 200; i += 1) {
-  const randomSelection = sample[Math.floor(Math.random() * sample.length)];
+for (let i = 0; i < 8; i += 1) {
+  const randomSelection = sample[i];
   rows.push(createData(i, ...randomSelection));
 }
 
 export default function ReactVirtualizedTable() {
   return (
-    <Paper style={{ height: 400, width: '100%' }}>
+    <Paper style={{ height: 800, width: '100%' }}>
       <VirtualizedTable
         rowCount={rows.length}
         rowGetter={({ index }) => rows[index]}
         columns={[
           {
             width: 200,
-            label: 'Dessert',
+            label: 'Hour',
             dataKey: 'dessert',
           },
           {
