@@ -154,8 +154,8 @@ const sample = [
   ['5pm', 356, 16.0, 49, 3.9],
 ];
 
-function createData(id, dessert, calories, fat, carbs, protein) {
-  return { id, dessert, calories, fat, carbs, protein };
+function createData(id, hour, task) {
+  return { id, hour, task};
 }
 
 const rows = [];
@@ -175,32 +175,14 @@ export default function ReactVirtualizedTable() {
           {
             width: 200,
             label: 'Hour',
-            dataKey: 'dessert',
+            dataKey: 'hour',
           },
           {
             width: 120,
             label: 'Calories\u00A0(g)',
-            dataKey: 'calories',
+            dataKey: 'task',
             numeric: true,
-          },
-          {
-            width: 120,
-            label: 'Fat\u00A0(g)',
-            dataKey: 'fat',
-            numeric: true,
-          },
-          {
-            width: 120,
-            label: 'Carbs\u00A0(g)',
-            dataKey: 'carbs',
-            numeric: true,
-          },
-          {
-            width: 120,
-            label: 'Protein\u00A0(g)',
-            dataKey: 'protein',
-            numeric: true,
-          },
+          }
         ]}
       />
     </Paper>
