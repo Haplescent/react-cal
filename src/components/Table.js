@@ -1,30 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
-import TableCell from '@material-ui/core/TableCell';
-import Paper from '@material-ui/core/Paper';
-import { AutoSizer, Column, Table } from 'react-virtualized';
+import React from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+import { withStyles } from "@material-ui/core/styles";
+import TableCell from "@material-ui/core/TableCell";
+import Paper from "@material-ui/core/Paper";
+import { AutoSizer, Column, Table } from "react-virtualized";
+import BasicTextFields from "./Textfield.js";
 
 const styles = (theme) => ({
   flexContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    boxSizing: 'border-box',
+    display: "flex",
+    alignItems: "center",
+    boxSizing: "border-box",
   },
   table: {
     // temporary right-to-left patch, waiting for
     // https://github.com/bvaughn/react-virtualized/issues/454
-    '& .ReactVirtualized__Table__headerRow': {
+    "& .ReactVirtualized__Table__headerRow": {
       flip: false,
-      paddingRight: theme.direction === 'rtl' ? '0px !important' : undefined,
+      paddingRight: theme.direction === "rtl" ? "0px !important" : undefined,
     },
   },
   tableRow: {
-    cursor: 'pointer',
+    cursor: "pointer",
   },
   tableRowHover: {
-    '&:hover': {
+    "&:hover": {
       backgroundColor: theme.palette.grey[200],
     },
   },
@@ -32,7 +33,7 @@ const styles = (theme) => ({
     flex: 1,
   },
   noClick: {
-    cursor: 'initial',
+    cursor: "initial",
   },
 });
 
@@ -60,7 +61,11 @@ class MuiVirtualizedTable extends React.PureComponent {
         })}
         variant="body"
         style={{ height: rowHeight }}
-        align={(columnIndex != null && columns[columnIndex].numeric) || false ? 'right' : 'left'}
+        align={
+          (columnIndex != null && columns[columnIndex].numeric) || false
+            ? "right"
+            : "left"
+        }
       >
         {cellData}
       </TableCell>
@@ -73,10 +78,14 @@ class MuiVirtualizedTable extends React.PureComponent {
     return (
       <TableCell
         component="div"
-        className={clsx(classes.tableCell, classes.flexContainer, classes.noClick)}
+        className={clsx(
+          classes.tableCell,
+          classes.flexContainer,
+          classes.noClick
+        )}
         variant="head"
         style={{ height: headerHeight }}
-        align={columns[columnIndex].numeric || false ? 'right' : 'left'}
+        align={columns[columnIndex].numeric || false ? "right" : "left"}
       >
         <span>{label}</span>
       </TableCell>
@@ -84,7 +93,13 @@ class MuiVirtualizedTable extends React.PureComponent {
   };
 
   render() {
-    const { classes, columns, rowHeight, headerHeight, ...tableProps } = this.props;
+    const {
+      classes,
+      columns,
+      rowHeight,
+      headerHeight,
+      ...tableProps
+    } = this.props;
     return (
       <AutoSizer>
         {({ height, width }) => (
@@ -93,7 +108,7 @@ class MuiVirtualizedTable extends React.PureComponent {
             width={width}
             rowHeight={rowHeight}
             gridStyle={{
-              direction: 'inherit',
+              direction: "inherit",
             }}
             headerHeight={headerHeight}
             className={classes.table}
@@ -132,7 +147,7 @@ MuiVirtualizedTable.propTypes = {
       label: PropTypes.string.isRequired,
       numeric: PropTypes.bool,
       width: PropTypes.number.isRequired,
-    }),
+    })
   ).isRequired,
   headerHeight: PropTypes.number,
   onRowClick: PropTypes.func,
@@ -144,18 +159,18 @@ const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 // ---
 
 const sample = [
-  ['9am', 159, 6.0, 24, 4.0],
-  ['10am', 237, 9.0, 37, 4.3],
-  ['11am', 262, 16.0, 24, 6.0],
-  ['12pm', 305, 3.7, 67, 4.3],
-  ['2pm', 356, 16.0, 49, 3.9],
-  ['3pm', 356, 16.0, 49, 3.9],
-  ['4pm', 356, 16.0, 49, 3.9],
-  ['5pm', 356, 16.0, 49, 3.9],
+  ["9am", "420"],
+  ["10am", 237, 9.0, 37, 4.3],
+  ["11am", 262, 16.0, 24, 6.0],
+  ["12pm", 305, 3.7, 67, 4.3],
+  ["2pm", 356, 16.0, 49, 3.9],
+  ["3pm", 356, 16.0, 49, 3.9],
+  ["4pm", 356, 16.0, 49, 3.9],
+  ["5pm", 356, 16.0, 49, 3.9],
 ];
 
 function createData(id, hour, task) {
-  return { id, hour, task};
+  return { id, hour, task };
 }
 
 const rows = [];
@@ -167,22 +182,22 @@ for (let i = 0; i < 8; i += 1) {
 
 export default function ReactVirtualizedTable() {
   return (
-    <Paper style={{ height: 800, width: '100%' }}>
+    <Paper style={{ height: 800, width: "100%" }}>
       <VirtualizedTable
         rowCount={rows.length}
         rowGetter={({ index }) => rows[index]}
         columns={[
           {
             width: 200,
-            label: 'Hour',
-            dataKey: 'hour',
+            label: "Hour",
+            dataKey: "hour",
           },
           {
             width: 120,
-            label: 'Calories\u00A0(g)',
-            dataKey: 'task',
+            label: "Calories\u00A0(g)",
+            dataKey: "task",
             numeric: true,
-          }
+          },
         ]}
       />
     </Paper>
