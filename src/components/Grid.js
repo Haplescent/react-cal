@@ -60,17 +60,31 @@ export default function CenteredGrid(props) {
         color: theme.palette.text.secondary,
       },
     }));
-    
+
     let classes = useStyles();
-    return (
-      <Grid item xs={6}>
-        <Paper Paper className={classes.paper}>
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField id="standard-basic" label="Standard" />
-          </form>
-        </Paper>
-      </Grid>
-    );
+
+    if (text === "Save") {
+      return (
+        <Grid item xs={6}>
+          <Paper Paper className={classes.paper}>
+            <form className={classes.root} noValidate autoComplete="off">
+              <TextField id="standard-basic" label="Standard" />
+            </form>
+          </Paper>
+        </Grid>
+      );
+    } else {
+      return (
+        <Grid item xs={6}>
+          <Paper Paper className={classes.paper}>
+            <form className={classes.root} noValidate autoComplete="off">
+              <TextField disabled id="standard-basic" label="Standard" />
+            </form>
+          </Paper>
+        </Grid>
+      )
+    }
+
   }
 
   return (
