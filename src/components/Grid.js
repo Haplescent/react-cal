@@ -60,6 +60,7 @@ export default function CenteredGrid(props) {
         color: theme.palette.text.secondary,
       },
     }));
+    
     let classes = useStyles();
     return (
       <Grid item xs={6}>
