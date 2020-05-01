@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CenteredGrid() {
+export default function CenteredGrid(props) {
   const classes = useStyles();
 
   return (
@@ -30,7 +30,7 @@ export default function CenteredGrid() {
         >
           <Grid item xs={3}>
             <Paper className={classes.paper}>
-              <h1>9am</h1>
+              <h1>{props.hour}</h1>
             </Paper>
           </Grid>
           <Grid item xs={6}>
