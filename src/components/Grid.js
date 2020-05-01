@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CenteredGrid(props) {
   const classes = useStyles();
+  const [textInput, setTextInput] = useState("");
 
   return (
     <div className={classes.root}>
