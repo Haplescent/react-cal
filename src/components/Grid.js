@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import BasicTextFields from "./Textfield.js";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-const useStyles = makeStyles((theme) => ({
+let useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     "& > *": {
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CenteredGrid(props) {
-  const classes = useStyles();
+  let classes = useStyles();
   const [textInput, setTextInput] = useState("");
   const [text, setText] = useState("Save");
 
@@ -37,16 +36,31 @@ export default function CenteredGrid(props) {
   function ContainedButtons() {
     return (
       <Grid item xs={3}>
-      <Paper className={classes.paper}>
-        <div className={classes.root}>
-          <Button variant="contained" onClick={() => handleClick()}>{text}</Button>
-        </div>
-      </Paper>
+        <Paper className={classes.paper}>
+          <div className={classes.root}>
+            <Button variant="contained" onClick={() => handleClick()}>{text}</Button>
+          </div>
+        </Paper>
       </Grid>
     );
   }
 
   function BasicTextFields() {
+    let useStyles = makeStyles((theme) => ({
+      root: {
+        flexGrow: 1,
+        "& > *": {
+          margin: theme.spacing(1),
+          width: "100ch"
+        }
+      },
+      paper: {
+        padding: theme.spacing(0),
+        textAlign: "center",
+        color: theme.palette.text.secondary,
+      },
+    }));
+    let classes = useStyles();
     return (
       <Grid item xs={6}>
         <Paper Paper className={classes.paper}>
