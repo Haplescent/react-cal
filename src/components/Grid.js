@@ -35,12 +35,6 @@ export default function CenteredGrid() {
           <Paper className={classes.paper}>{BasicTextFields()}</Paper>
           <Paper className={classes.paper}>{ContainedButtons()}</Paper>
         </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={9}>
-          <Paper className={classes.paper}>{BasicTextFields()}</Paper>
-        </Grid>
       </Grid>
     </div>
   );

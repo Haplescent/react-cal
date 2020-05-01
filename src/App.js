@@ -5,11 +5,12 @@ import "./components/Grid.js";
 import CenteredGrid from "./components/Grid.js";
 import ReactVirtualizedTable from "./components/Table.js";
 import BasicTextFields from "./components/Textfield.js";
+import ButtonAppBar from "./components/AppBar.js";
 
 function App() {
   return (
     <div className="App">
-      {ReactVirtualizedTable()}
+      {ButtonAppBar()}
       {CenteredGrid()}
     </div>
   );
