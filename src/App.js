@@ -14,7 +14,6 @@ function App() {
     <div className="App">
       {ButtonAppBar()}
       {CenteredGrid()}
-      <Clock />
     </div>
   );
 }

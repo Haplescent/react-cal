@@ -4,7 +4,7 @@ import moment from 'moment';
 export default class Clock extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {date: new Date()};
+      this.state = {date: moment().format('MMMM Do YYYY, h:mm:ss a')};
     }
   
     componentDidMount() {
@@ -20,15 +20,14 @@ export default class Clock extends React.Component {
   
     tick() {
       this.setState({
-        date: new Date()
+        date: moment().format('MMMM Do YYYY, h:mm:ss a')
       });
     }
   
     render() {
       return (
         <div>
-          <h1>Hello, world!</h1>
-          <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+          <h2>It is {this.state.date}.</h2>
         </div>
       );
     }
