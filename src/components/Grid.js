@@ -68,7 +68,7 @@ export default function CenteredGrid(props) {
         <Grid item xs={6}>
           <Paper Paper className={classes.paper}>
             <form className={classes.root} noValidate autoComplete="off">
-              <TextField id="standard-basic" label="Standard" />
+              <TextField id="standard-basic" label="Write Task Here" />
             </form>
           </Paper>
         </Grid>
@@ -78,7 +78,7 @@ export default function CenteredGrid(props) {
         <Grid item xs={6}>
           <Paper Paper className={classes.paper}>
             <form className={classes.root} noValidate autoComplete="off">
-              <TextField disabled id="standard-basic" label="Standard" />
+              <TextField disabled id="standard-basic" label="Write Task Here" />
             </form>
           </Paper>
         </Grid>
