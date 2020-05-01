@@ -21,21 +21,25 @@ export default function CenteredGrid() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={5}>
         <Grid
+          container spacing={0}
           container={true}
           item
           direction={"row"}
           justify={"flex-start"}
-          xs={12}
         >
-          <Paper className={classes.paper}>
-            <h1>9am</h1>
-          </Paper>
-          <Paper className={classes.paper}>{BasicTextFields()}</Paper>
-          <Paper className={classes.paper}>{ContainedButtons()}</Paper>
+          <Grid item xs={3}>
+            <Paper className={classes.paper}>
+              <h1>9am</h1>
+            </Paper>
+          </Grid>
+          <Grid item xs={6}>
+            <Paper Paper className={classes.paper}>{BasicTextFields()}</Paper>
+          </Grid>
+          <Grid item xs={3}>
+            <Paper className={classes.paper}>{ContainedButtons()}</Paper>
+          </Grid>
         </Grid>
-      </Grid>
     </div>
   );
 }
